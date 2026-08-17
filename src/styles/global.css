@@ -2068,7 +2068,7 @@ img {
     right: auto;
     left: 12px;
     bottom: 12px;
-    width: min(360px, calc(100% - 24px));
+    width: min(330px, calc(100% - 86px));
     max-height: calc(100vh - 92px);
     overflow: auto;
     padding: 16px;
@@ -2103,7 +2103,7 @@ img {
 
   .floating-chat {
     right: 12px;
-    bottom: 72px;
+    bottom: 142px;
     width: 50px;
     height: 50px;
   }
@@ -2187,6 +2187,7 @@ img {
 
   .cookie-consent {
     bottom: 12px;
+    width: min(282px, calc(100% - 82px));
   }
 
   .cookie-launcher {
@@ -2195,11 +2196,29 @@ img {
 
   .floating-chat {
     right: 10px;
-    bottom: 72px;
+    bottom: 136px;
     width: 48px;
     height: 48px;
   }
 
+}
+
+@media (max-width: 380px) {
+  .cookie-consent {
+    width: min(260px, calc(100% - 78px));
+    padding: 14px;
+  }
+
+  .cookie-consent div {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-chat {
+    right: 8px;
+    bottom: 146px;
+    width: 46px;
+    height: 46px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
