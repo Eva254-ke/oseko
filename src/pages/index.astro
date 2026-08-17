@@ -547,6 +547,10 @@ const footerLinks = [
     </div>
   </aside>
 
+  <button class="cookie-launcher" type="button" aria-label="Open cookie preferences" data-cookie-launcher>
+    <span></span>
+  </button>
+
   <a
     class="floating-chat"
     href="https://wa.me/254793783514?text=Hello%20Oseko%20Solutions%2C%20I%20would%20like%20to%20book%20a%20cleaning%20service."
@@ -608,11 +612,16 @@ const footerLinks = [
     });
 
     const cookieConsent = document.querySelector<HTMLElement>("[data-cookie-consent]");
+    const cookieLauncher = document.querySelector<HTMLButtonElement>("[data-cookie-launcher]");
     const cookieButtons = document.querySelectorAll<HTMLButtonElement>("[data-cookie-close], [data-cookie-accept]");
 
     if (localStorage.getItem("oseko-cookie-choice")) {
       cookieConsent?.setAttribute("hidden", "");
     }
+
+    cookieLauncher?.addEventListener("click", () => {
+      cookieConsent?.removeAttribute("hidden");
+    });
 
     cookieButtons.forEach((button) => {
       button.addEventListener("click", () => {
