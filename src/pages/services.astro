@@ -1,0 +1,122 @@
+---
+const services = [
+  {
+    number: "01",
+    title: "Sofa & Upholstery Cleaning",
+    description:
+      "Deep cleaning for sofas, chairs, cushions and fabric upholstery.",
+    href: "/services/sofa-upholstery-cleaning",
+  },
+  {
+    number: "02",
+    title: "Carpet & Rug Cleaning",
+    description:
+      "Careful cleaning that helps refresh carpets, rugs and high-traffic areas.",
+    href: "/services/carpet-cleaning",
+  },
+  {
+    number: "03",
+    title: "Mattress Cleaning",
+    description:
+      "A thorough mattress-cleaning service for a fresher sleeping space.",
+    href: "/services/mattress-cleaning",
+  },
+  {
+    number: "04",
+    title: "Home & Apartment Cleaning",
+    description:
+      "One-time, deep and regular cleaning for homes, apartments and kitchens.",
+    href: "/services/house-cleaning",
+  },
+  {
+    number: "05",
+    title: "Office & Commercial Cleaning",
+    description:
+      "Reliable cleaning for offices, workspaces, hotels and Airbnb properties.",
+    href: "/services/office-cleaning",
+  },
+  {
+    number: "06",
+    title: "Post-Construction Cleaning",
+    description:
+      "Detailed removal of construction dust and debris before move-in or handover.",
+    href: "/services/post-construction-cleaning",
+  },
+  {
+    number: "07",
+    title: "Car Interior Cleaning",
+    description:
+      "Interior cleaning for seats, carpets, dashboards and other vehicle surfaces.",
+    href: "/services/car-interior-cleaning",
+  },
+  {
+    number: "08",
+    title: "Fumigation & Pest Control",
+    description:
+      "Professional pest-control support for homes, apartments and businesses.",
+    href: "/services/fumigation-pest-control",
+  },
+];
+---
+
+<section class="services-section" aria-labelledby="services-title">
+  <div class="container">
+    <div class="services-section__intro">
+      <div>
+        <p class="section-eyebrow">What we clean</p>
+
+        <h2 id="services-title">
+          Cleaning services for every kind of space.
+        </h2>
+      </div>
+
+      <div class="services-section__intro-copy">
+        <p>
+          From a single sofa to an entire workplace, Oseko Solutions helps keep
+          your space clean, comfortable and ready to use.
+        </p>
+
+        <a class="text-link" href="/services">
+          Explore all services
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="services-list">
+      {
+        services.map((service) => (
+          <article class="service-item">
+            <span class="service-item__number" aria-hidden="true">
+              {service.number}
+            </span>
+
+            <div class="service-item__content">
+              <h3>
+                <a href={service.href}>{service.title}</a>
+              </h3>
+
+              <p>{service.description}</p>
+            </div>
+
+            <a
+              class="service-item__arrow"
+              href={service.href}
+              aria-label={`View ${service.title}`}
+            >
+              <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="services-section__footer">
+      <p>Need a service not listed here? Tell us what you need.</p>
+
+      <a class="services-section__book-link" href="/book-a-service">
+        Book a Service
+      </a>
+    </div>
+  </div>
+</section>

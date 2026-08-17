@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const areas = [
+  "Kilimani",
+  "Westlands",
+  "Kileleshwa",
+  "Lavington",
+  "Karen",
+  "Runda",
+  "Parklands",
+  "South B",
+  "South C",
+  "Embakasi",
+  "Ruaka",
+  "Syokimau",
+  "Kitengela",
+];
+---
+
+<BaseLayout
+  title="Service Areas | Oseko Solutions"
+  description="Oseko Solutions provides cleaning services across Nairobi and nearby service areas."
+>
+  <header class="site-header" data-header>
+    <div class="audience-switch" aria-label="Service type">
+      <a href="/">Domestic</a>
+      <a href="/">Commercial</a>
+    </div>
+
+    <div class="header-main">
+      <a class="brand" href="/" aria-label="Oseko Solutions home">
+        <span>Oseko</span>
+        <strong>Solutions</strong>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="/#services">Services</a>
+        <a href="/#plans">Prices</a>
+        <a href="/service-areas">Service Areas</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+254719184210">0719 184 210</a>
+        <a class="button button--small" href="/#quote">Book a service</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section coverage-section service-areas-page">
+      <div class="section-copy">
+        <p class="eyebrow">Cleaning service coverage</p>
+        <h1>Oseko service areas across Nairobi.</h1>
+        <p>
+          Book cleaning services in Kilimani, Westlands, Kileleshwa, Lavington, Karen, Runda, Parklands, South B, South C, Embakasi, Ruaka, Syokimau, Kitengela, and nearby areas.
+        </p>
+        <a class="text-link" href="/#quote">Check your location</a>
+      </div>
+
+      <div class="coverage-map" aria-label="Google Map showing Oseko Solutions service areas">
+        <iframe
+          title="Google map of Oseko Solutions service areas in Nairobi"
+          src="https://maps.google.com/maps?q=Nairobi%20Kenya%20Kilimani%20Westlands%20Kileleshwa%20Lavington%20Karen%20Runda%20Embakasi%20Syokimau%20Kitengela&t=m&z=11&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <div class="area-list" aria-label="Service areas">
+          {areas.map((area) => <span>{area}</span>)}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,17 +1,624 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const serviceOptions = [
+  "Domestic cleaning",
+  "Deep cleaning",
+  "End of tenancy cleaning",
+  "Sofa and upholstery",
+  "Carpet and rug cleaning",
+  "Mattress cleaning",
+  "Office cleaning",
+  "Post-construction cleaning",
+  "Fumigation and pest control",
+];
+
+const navServices = [
+  "Mould and mildew cleaning",
+  "Domestic cleaning",
+  "One-off cleaning",
+  "End of tenancy",
+  "Spring cleaning",
+  "Carpet cleaning",
+  "Upholstery cleaning",
+  "Mattress cleaning",
+  "Oven cleaning",
+  "Window cleaning",
+  "Office cleaning",
+  "Post-construction",
+  "Fumigation",
+];
+
+const heroChecks = [
+  "Vetted cleaning teams across Nairobi and nearby areas",
+  "Weekly, fortnightly, one-off, weekend, and urgent bookings",
+  "Homes, offices, Airbnb spaces, hotels, upholstery, carpets, and mattresses",
+  "Professional supplies with family-friendly cleaning options",
+  "Checklist-based work with supervisor follow-up",
+];
+
+const benefits = [
+  {
+    icon: "calendar",
+    title: "24/7 booking requests",
+    body: "Send your cleaning request any time. Oseko confirms the service, location, access details, and preferred slot before dispatch.",
+  },
+  {
+    icon: "sliders",
+    title: "Flexible cleaning plans",
+    body: "Choose regular upkeep, deep cleaning, move-out readiness, upholstery, carpets, fumigation, or one combined plan.",
+  },
+  {
+    icon: "shield",
+    title: "Family-friendly cleaning",
+    body: "Teams arrive prepared with professional equipment and can use eco-conscious products for homes with children, pets, or delicate surfaces.",
+  },
+];
+
+const stats = [
+  ["6000+", "cleaning tasks completed"],
+  ["24 hr", "quote response target"],
+  ["7 days", "cleaners available all week"],
+];
+
+const services = [
+  ["Domestic cleaning", "Regular housekeeping, kitchens, bathrooms, bedrooms, and living spaces.", "From KSh 2,500"],
+  ["End of tenancy cleaning", "Detailed move-out and move-in cleaning for apartments, homes, and managed rentals.", "Custom quote"],
+  ["Carpet and rug cleaning", "Careful treatment for high-traffic areas, rugs, carpets, and soft flooring.", "From KSh 1,500"],
+  ["Sofa and upholstery", "Deep cleaning for sofas, chairs, cushions, dining seats, and fabric upholstery.", "From KSh 1,800"],
+  ["Mattress cleaning", "A thorough mattress-cleaning service for a fresher sleeping space.", "From KSh 1,500"],
+  ["Office cleaning", "Recurring and after-hours cleaning for offices, retail, hospitality, and workspaces.", "Site visit quote"],
+];
+
+const signatureBenefits = [
+  "A prepared detergent and cloth bundle for regular home cleaning visits.",
+  "Laundry, ironing, appliance, upholstery, carpet, and mattress add-ons available on request.",
+  "Replacement cleaner support when a regular assigned cleaner is unavailable.",
+  "Flexible early, late, weekend, and same-day scheduling when slots are open.",
+];
+
+const reviews = [
+  ["Amazing service, above and beyond", "The team arrived on time, explained the plan, and left the apartment spotless. The sofa and carpet looked completely refreshed.", "Faith M."],
+  ["Far exceeded my expectations", "Oseko set up a clear schedule, handled supplies, and keeps our workspace ready for staff and visitors every week.", "Brian K."],
+  ["Very professional and organised", "There was dust everywhere after construction. They handled windows, floors, cabinets, and the final polish with real attention.", "Amina O."],
+];
+
+const faqs = [
+  ["How do I book a cleaning service?", "Use the form or call 0719 184 210. We confirm the scope, address, date, and access details before dispatch."],
+  ["Do you bring cleaning supplies?", "Yes. Oseko teams can bring professional supplies and equipment. If a surface needs a specific product, include that note when booking."],
+  ["Can I book the same cleaner regularly?", "For recurring home or office cleaning, Oseko aims to keep a consistent assigned team and arrange replacement support when schedules change."],
+  ["Which areas do you serve?", "Oseko serves Nairobi and nearby areas, with custom arrangements for larger residential, commercial, and post-construction work."],
+];
+
+const areas = [
+  "Kilimani",
+  "Westlands",
+  "Kileleshwa",
+  "Lavington",
+  "Karen",
+  "Runda",
+  "Parklands",
+  "South B",
+  "South C",
+  "Embakasi",
+  "Ruaka",
+  "Syokimau",
+  "Kitengela",
+];
+
+const footerServiceColumns = [
+  [
+    "Domestic cleaning",
+    "One-off cleaning",
+    "End of tenancy",
+    "Spring cleaning",
+    "Carpet cleaning",
+    "Upholstery cleaning",
+  ],
+  [
+    "Mattress cleaning",
+    "Office cleaning",
+    "Post-construction",
+    "Fumigation",
+    "Window cleaning",
+    "Appliance cleaning",
+  ],
+];
+
+const footerLinks = [
+  "Prices",
+  "Oseko Club",
+  "Reviews",
+  "About",
+  "Cleaning jobs",
+  "Privacy Policy",
+  "Terms of use",
+  "Cookies Policy",
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Oseko Solutions | Professional Cleaning Services in Nairobi"
+  description="Book professional domestic, office, upholstery, carpet, mattress, post-construction and fumigation cleaning services with Oseko Solutions."
+>
+  <header class="site-header" data-header>
+    <div class="audience-switch" aria-label="Service type">
+      <a href="#domestic">Domestic</a>
+      <a href="#commercial">Commercial</a>
+    </div>
+
+    <div class="header-main">
+      <a class="brand" href="/" aria-label="Oseko Solutions home">
+        <span>Oseko</span>
+        <strong>Solutions</strong>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <div class="nav-dropdown">
+          <a href="#services">Services</a>
+          <div class="nav-dropdown__panel" aria-label="Cleaning services">
+            {navServices.map((service) => <a href="#services">{service}</a>)}
+          </div>
+        </div>
+        <a href="#plans">Prices</a>
+        <a href="#careers">Apply for a Job</a>
+        <a href="#plans">Oseko Club</a>
+        <a href="#sustainability">Sustainability</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+254719184210">0719 184 210</a>
+        <a class="button button--small" href="#quote">Book a service</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-button>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav hidden>
+      <a href="#services">Services</a>
+      <a href="#plans">Prices</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quote">Book a service</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy" data-reveal>
+        <h1 id="hero-title">
+          <span>Professional House Cleaning</span>
+          <span>Services in Nairobi</span>
+        </h1>
+        <p class="hero__lead">
+          Affordable house cleaning rates and maid services Nairobi. Reliable home cleaning services near you available on weekends and holidays.
+        </p>
+
+        <ul class="hero__checks" aria-label="Service benefits">
+          {heroChecks.map((check) => <li>{check}</li>)}
+        </ul>
+
+        <div class="hero__actions">
+          <a class="button" href="#quote">Find a cleaner</a>
+        </div>
+
+        <div class="hero-trust" aria-label="Trustpilot rating">
+          <strong>Trustpilot</strong>
+          <span aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </span>
+          <small>Excellent 4.9 / 5</small>
+        </div>
+
+        <aside class="hero-club" aria-label="Oseko Club offer">
+          <strong>Oseko Club</strong>
+          <span>Priority slots, recurring-cleaning discounts, and faster support for members.</span>
+        </aside>
+
+        <section class="trust-strip" aria-label="Featured logos">
+          <span>As featured in</span>
+          <img
+            src="/images/trust/featured-logos.png"
+            alt="As seen in BBC, The Telegraph, The Independent, CNN and Forbes"
+            width="454"
+            height="46"
+            loading="eager"
+          />
+        </section>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero-image">
+          <img
+              src="/images/hero/oseko-hero.jpg"
+            alt="Professional cleaner in a bright modern home"
+            width="1200"
+            height="1100"
+            fetchpriority="high"
+          />
+          <span class="hero-spark hero-spark--one" aria-hidden="true"></span>
+          <span class="hero-spark hero-spark--two" aria-hidden="true"></span>
+          <span class="hero-spark hero-spark--three" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="club-strip" id="domestic" aria-label="Booking benefits" data-reveal>
+      <strong>Priority booking, flexible slots, and clear estimates</strong>
+      <span>Domestic and commercial cleaners prepared for homes, offices, rentals, hotels, and post-construction sites.</span>
+      <div class="benefit-list benefit-list--strip">
+        {benefits.map((item) => (
+          <article data-reveal>
+            <span class={`benefit-icon benefit-icon--${item.icon}`} aria-hidden="true"></span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="stats-row" aria-label="Oseko cleaning numbers">
+      {stats.map(([value, label]) => (
+        <div data-reveal>
+          <strong>{value}</strong>
+          <span>{label}</span>
+        </div>
+      ))}
+    </section>
+
+    <section class="section narrative" id="commercial">
+      <div class="cleaning-photo" data-reveal>
+        <img
+          src="/images/services/professional-service-cleaning.jpg"
+          alt="Oseko Solutions cleaners using professional floor-cleaning equipment outside a Nairobi property"
+          width="474"
+          height="355"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="section-copy" data-reveal>
+        <p class="eyebrow">Professional cleaners near you</p>
+        <h2>Top-rated domestic and commercial cleaning teams.</h2>
+        <p>
+          Oseko Solutions provides reliable and thorough cleaning in Nairobi, tailored to every household and workplace. Whether you need a regular tidy-up, a one-off refresh, move-out cleaning, or a full post-construction handover, our team follows a practical checklist and finishes with a clear review.
+        </p>
+        <p>
+          Our local cleaners handle homes, apartments, offices, Airbnb spaces, hotels, carpets, mattresses, upholstery, and fumigation needs with careful communication and transparent estimates.
+        </p>
+        <a class="text-link" href="#quote">Cleaning estimate</a>
+      </div>
+    </section>
+
+    <section class="section signature-section" id="signature">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Oseko Signature Cleaning</p>
+        <h2>Personalised home cleaning with trained teams and flexible add-ons.</h2>
+        <p>
+          A higher-detail cleaning plan for homes that need regular care, careful surfaces, and consistent communication before every visit.
+        </p>
+      </div>
+
+      <div class="signature-grid">
+        <div class="signature-copy" data-reveal>
+          <ul>
+            {signatureBenefits.map((benefit) => <li>{benefit}</li>)}
+          </ul>
+          <a class="button" href="#quote">Request a signature slot</a>
+        </div>
+
+        <div class="signature-images" data-reveal>
+          <img
+            src="/images/coverage/uhuru-park-nairobi.jpg"
+            alt="Uhuru Park and Nairobi skyline"
+            width="1024"
+            height="576"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="services-section__head" data-reveal>
+        <div>
+          <h2>Nairobi home cleaning service packages</h2>
+        </div>
+      </div>
+
+      <div class="packages-strip">
+        {services.map(([title, body, price]) => (
+          <article data-reveal>
+            <h3>{title}</h3>
+            <p>{body}</p>
+            <strong>{price}</strong>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section plans-section" id="plans">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Service packages</p>
+        <h2>Simple pricing conversations for common cleaning needs.</h2>
+      </div>
+
+      <div class="plans-list">
+        <div data-reveal>
+          <span>Weekly, fortnightly, or one-off</span>
+          <h3>Essential Home</h3>
+          <strong>From KSh 2,500</strong>
+          <p>Dusting, vacuuming, mopping, kitchen, bathroom, bedrooms, and living areas.</p>
+        </div>
+        <div data-reveal>
+          <span>Move-ins, events, and seasonal resets</span>
+          <h3>Deep Refresh</h3>
+          <strong>Custom quote</strong>
+          <p>Detailed room-by-room cleaning with appliance, upholstery, carpet, and mattress add-ons.</p>
+        </div>
+        <div data-reveal>
+          <span>Offices, hotels, Airbnb, and retail</span>
+          <h3>Business Care</h3>
+          <strong>Site visit quote</strong>
+          <p>Recurring schedules, after-hours teams, supply handling, and supervisor quality checks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews-section" id="reviews">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Reviews</p>
+        <h2>Trusted by homes, hosts, and offices.</h2>
+      </div>
+
+      <div class="reviews-list">
+        {reviews.map(([title, quote, name]) => (
+          <article data-reveal>
+            <div class="review-avatar" aria-hidden="true">{name.charAt(0)}</div>
+            <h3>{title}</h3>
+            <p>{quote}</p>
+            <a href="#reviews">Read more</a>
+            <strong>{name}</strong>
+            <span class="review-rating" aria-label="5 out of 5 stars">★★★★★</span>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="club-promo" id="club" data-reveal>
+      <div>
+        <p class="eyebrow">Oseko Club</p>
+        <h2>Priority booking and preferential rates for regular cleaning.</h2>
+        <p>
+          Set recurring visits, keep your preferred team when possible, and get faster support for urgent cleaning requests.
+        </p>
+      </div>
+      <a class="button button--ghost" href="#quote">Learn about the club</a>
+    </section>
+
+    <section class="section coverage-section" id="coverage">
+      <div class="section-copy" data-reveal>
+        <p class="eyebrow">Cleaning service coverage</p>
+        <h2>Serving Nairobi and nearby service areas.</h2>
+        <p>
+          Book Oseko in Kilimani, Westlands, Kileleshwa, Lavington, Karen, Runda, Parklands, South B, South C, Embakasi, Ruaka, Syokimau, Kitengela, and surrounding areas.
+        </p>
+        <a class="text-link" href="#quote">Check your location</a>
+      </div>
+
+      <div class="coverage-map" data-reveal aria-label="Oseko Solutions Nairobi service-area map">
+        <iframe
+          title="Google map of Oseko Solutions service areas in Nairobi"
+          src="https://maps.google.com/maps?q=Nairobi%20Kenya%20Kilimani%20Westlands%20Kileleshwa%20Lavington%20Karen%20Runda%20Embakasi%20Syokimau%20Kitengela&t=m&z=11&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <div class="area-list" aria-label="Service areas">
+          {areas.map((area) => <span>{area}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="section-copy" data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2>Before you book.</h2>
+      </div>
+
+      <div class="faq-list" data-reveal>
+        {faqs.map(([question, answer]) => (
+          <details>
+            <summary>{question}</summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="quote-section" id="quote">
+      <div class="section-copy" data-reveal>
+        <p class="eyebrow">Ready to book now?</p>
+        <h2>Tell us what needs cleaning.</h2>
+      </div>
+
+      <form class="quote-form" data-quote-form data-reveal>
+        <label>
+          Service
+          <select name="service">
+            {serviceOptions.map((service) => <option value={service}>{service}</option>)}
+          </select>
+        </label>
+
+        <label>
+          Location
+          <input name="location" type="text" placeholder="Kilimani, Nairobi" autocomplete="address-level2" />
+        </label>
+
+        <label>
+          Preferred date
+          <input name="date" type="date" />
+        </label>
+
+        <label>
+          Phone number
+          <input name="phone" type="tel" placeholder="0719 184 210" autocomplete="tel" />
+        </label>
+
+        <button class="button" type="submit">Request quote</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <section class="footer-cta" aria-labelledby="footer-cta-title">
+      <h2 id="footer-cta-title">Ready to book now?</h2>
+      <div>
+        <a class="button" href="#quote">Book now</a>
+        <a class="button button--ghost" href="#quote">Request a quote</a>
+      </div>
+    </section>
+
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3>Help & Information</h3>
+        <nav aria-label="Help and information">
+          {footerLinks.map((link) => <a href="#">{link}</a>)}
+        </nav>
+      </div>
+
+      <div class="footer-column footer-column--wide">
+        <h3>Our Services</h3>
+        <div class="footer-services">
+          {footerServiceColumns.map((column) => (
+            <nav aria-label="Footer services">
+              {column.map((service) => <a href="#services">{service}</a>)}
+            </nav>
+          ))}
+        </div>
+      </div>
+
+      <aside class="footer-join" id="careers">
+        <h3>Become an Oseko cleaner</h3>
+        <p>Want to join a professional cleaning team with clear standards and organised schedules?</p>
+        <a href="mailto:info@osekosolutions.co.ke?subject=Cleaner%20application">Join us</a>
+      </aside>
+
+      <form class="newsletter" aria-label="Subscribe to offers">
+        <h3>Subscribe</h3>
+        <p>Be the first to hear about offers, service updates, and priority cleaning slots.</p>
+        <label>
+          <span>Email address</span>
+          <input type="email" name="email" placeholder="you@example.com" />
+        </label>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-bottom">
+      <strong>Oseko Solutions</strong>
+      <nav aria-label="Contact links">
+        <a href="tel:+254719184210">0719 184 210</a>
+        <a href="https://wa.me/254793783514?text=Hello%20Oseko%20Solutions%2C%20I%20would%20like%20to%20book%20a%20cleaning%20service.">WhatsApp</a>
+        <a href="mailto:info@osekosolutions.co.ke">info@osekosolutions.co.ke</a>
+      </nav>
+      <div class="social-dots" aria-label="Social links">
+        <a href="#" aria-label="Facebook"></a>
+        <a href="#" aria-label="Instagram"></a>
+        <a href="#" aria-label="LinkedIn"></a>
+      </div>
+      <span>Oseko Solutions &copy; 2026. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <aside class="cookie-consent" data-cookie-consent aria-label="Cookie preferences">
+    <button class="cookie-consent__close" type="button" aria-label="Close cookie notice" data-cookie-close></button>
+    <h2>Privacy Preference Center</h2>
+    <p>
+      We use cookies to improve booking, measure site performance, and keep helpful preferences. You can accept all cookies or continue with only essential cookies.
+    </p>
+    <div>
+      <button type="button" data-cookie-accept>Accept All</button>
+      <button type="button" data-cookie-close>Essential Only</button>
+    </div>
+  </aside>
+
+  <a
+    class="floating-chat"
+    href="https://wa.me/254793783514?text=Hello%20Oseko%20Solutions%2C%20I%20would%20like%20to%20book%20a%20cleaning%20service."
+    aria-label="Chat with Oseko Solutions on WhatsApp"
+  >
+    <span></span>
+  </a>
+
+  <script>
+    const menuButton = document.querySelector<HTMLButtonElement>("[data-menu-button]");
+    const mobileNav = document.querySelector<HTMLElement>("[data-mobile-nav]");
+
+    menuButton?.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      mobileNav?.toggleAttribute("hidden", isOpen);
+    });
+
+    mobileNav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuButton?.setAttribute("aria-expanded", "false");
+        mobileNav.setAttribute("hidden", "");
+      });
+    });
+
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "140px 0px", threshold: 0.1 },
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    }
+
+    const quoteForm = document.querySelector<HTMLFormElement>("[data-quote-form]");
+
+    quoteForm?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const data = new FormData(quoteForm);
+      const service = data.get("service") || "cleaning service";
+      const location = data.get("location") || "my location";
+      const date = data.get("date") || "my preferred date";
+      const phone = data.get("phone") || "my phone number";
+      const message = `Service: ${service}\nLocation: ${location}\nPreferred date: ${date}\nPhone: ${phone}`;
+
+      window.location.href = `mailto:info@osekosolutions.co.ke?subject=${encodeURIComponent("Cleaning quote request")}&body=${encodeURIComponent(message)}`;
+    });
+
+    const cookieConsent = document.querySelector<HTMLElement>("[data-cookie-consent]");
+    const cookieButtons = document.querySelectorAll<HTMLButtonElement>("[data-cookie-close], [data-cookie-accept]");
+
+    if (localStorage.getItem("oseko-cookie-choice")) {
+      cookieConsent?.setAttribute("hidden", "");
+    }
+
+    cookieButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        localStorage.setItem("oseko-cookie-choice", button.hasAttribute("data-cookie-accept") ? "accepted" : "essential");
+        cookieConsent?.setAttribute("hidden", "");
+      });
+    });
+  </script>
+</BaseLayout>

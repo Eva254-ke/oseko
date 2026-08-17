@@ -1,0 +1,30 @@
+:root {
+  --navy: #0B2347;
+  --navy-dark: #061833;
+  --orange: #F28C00;
+  --orange-dark: #C96F00;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --text: #162033;
+  --muted: #5C687A;
+  --border: #E2E8F0;
+  --success: #138A4A;
+  --whatsapp: #25D366;
+
+  --font-sans: "Manrope", Arial, sans-serif;
+  --font-display: "DM Serif Display", Georgia, serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --radius-button: 4px;
+  --radius-card: 8px;
+  --max-width: 1200px;
+}

@@ -1,0 +1,304 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-topbar {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.header-topbar__inner {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.header-topbar p {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.header-topbar__contacts {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.header-topbar__contacts a {
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.header-topbar__contacts a:hover,
+.header-topbar__contacts a:focus-visible {
+  color: var(--orange);
+}
+
+.header-main {
+  background: var(--surface);
+}
+
+.header-main__inner {
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--navy);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+}
+
+.brand-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
+.brand-text strong {
+  color: var(--navy);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.brand-text span {
+  margin-top: 4px;
+  color: var(--orange);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.desktop-nav {
+  margin-left: auto;
+}
+
+.desktop-nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.desktop-nav a {
+  position: relative;
+  display: inline-flex;
+  padding: var(--space-2) 0;
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.desktop-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--orange);
+  content: "";
+  opacity: 0;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a:focus-visible,
+.desktop-nav a.active {
+  color: var(--navy);
+}
+
+.desktop-nav a.active::after {
+  opacity: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.book-service-button,
+.whatsapp-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.book-service-button {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.book-service-button:hover,
+.book-service-button:focus-visible {
+  background: var(--navy-dark);
+  color: #ffffff;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 4px 0;
+  background: currentColor;
+}
+
+.mobile-nav {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.mobile-nav ul {
+  margin: 0;
+  padding: var(--space-3) 0;
+  list-style: none;
+}
+
+.mobile-nav li {
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-nav li > a {
+  display: block;
+  padding: var(--space-4) 0;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-nav li > a.active {
+  color: var(--orange-dark);
+}
+
+.mobile-nav__actions {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5) 0;
+}
+
+.whatsapp-button {
+  background: var(--whatsapp);
+  color: #ffffff;
+}
+
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible {
+  background: #1ea855;
+  color: #ffffff;
+}
+
+.mobile-call-link {
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1180px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-topbar__inner {
+    min-height: 34px;
+    justify-content: center;
+  }
+
+  .header-topbar p {
+    display: none;
+  }
+
+  .header-topbar__contacts {
+    width: 100%;
+    justify-content: center;
+    gap: var(--space-5);
+  }
+
+  .header-main__inner {
+    min-height: 68px;
+    gap: var(--space-3);
+  }
+
+  .header-actions > .book-service-button {
+    display: none;
+  }
+
+  .brand-mark {
+    width: 39px;
+    height: 39px;
+  }
+
+  .brand-text strong {
+    font-size: 1.125rem;
+  }
+}

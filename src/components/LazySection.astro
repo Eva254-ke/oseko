@@ -1,0 +1,68 @@
+---
+interface Props {
+  id: string;
+  endpoint: string;
+  label?: string;
+}
+
+const {
+  id,
+  endpoint,
+  label = "Loading content...",
+} = Astro.props;
+---
+
+<section
+  id={id}
+  class="lazy-section"
+  data-lazy-section
+  data-endpoint={endpoint}
+  aria-busy="true"
+>
+  <div class="container">
+    <p class="lazy-section__status">{label}</p>
+  </div>
+</section>
+
+<script>
+  const lazySections = document.querySelectorAll<HTMLElement>("[data-lazy-section]");
+
+  const observer = new IntersectionObserver(
+    async (entries, currentObserver) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+
+        const section = entry.target as HTMLElement;
+        const endpoint = section.dataset.endpoint;
+
+        if (!endpoint) continue;
+
+        try {
+          const response = await fetch(endpoint);
+
+          if (!response.ok) {
+            throw new Error("Unable to load this section.");
+          }
+
+          section.innerHTML = await response.text();
+          section.setAttribute("aria-busy", "false");
+          currentObserver.unobserve(section);
+        } catch {
+          section.innerHTML = `
+            <div class="container">
+              <p>Unable to load this content. Please refresh the page or contact us on WhatsApp.</p>
+            </div>
+          `;
+          section.setAttribute("aria-busy", "false");
+          currentObserver.unobserve(section);
+        }
+      }
+    },
+    {
+      rootMargin: "300px 0px",
+      threshold: 0.01,
+    },
+  );
+
+  lazySections.forEach((section) => observer.observe(section));
+</script>
