@@ -1897,9 +1897,9 @@ img {
 
   .header-main {
     min-height: 66px;
-    grid-template-columns: 46px minmax(0, 1fr) auto;
+    grid-template-columns: 44px minmax(0, 1fr) 54px;
     justify-content: initial;
-    gap: 10px;
+    gap: 8px;
   }
 
   .brand {
@@ -1934,16 +1934,14 @@ img {
     border-radius: 4px;
     background: var(--orange);
     color: #fff;
-    font-size: 0.82rem;
+    font-size: 0;
     padding: 8px 11px;
   }
 
   .header-phone::before {
     content: "Call";
-  }
-
-  .header-phone {
-    font-size: 0;
+    font-size: 0.82rem;
+    line-height: 1;
   }
 
   .mobile-nav {
@@ -1975,9 +1973,9 @@ img {
   }
 
   .hero__visual {
-    width: 100vw;
+    width: calc(100% + 32px);
     min-height: 220px;
-    margin-left: calc(50% - 50vw);
+    margin-left: -16px;
     order: 1;
   }
 
@@ -1986,7 +1984,7 @@ img {
   }
 
   .hero-image img {
-    object-position: center;
+    object-position: 58% 8%;
   }
 
   .trust-strip,
@@ -2100,14 +2098,14 @@ img {
   .cookie-launcher {
     right: auto;
     left: 14px;
-    bottom: 74px;
+    bottom: 72px;
   }
 
   .floating-chat {
-    right: 14px;
-    bottom: 74px;
-    width: 52px;
-    height: 52px;
+    right: 12px;
+    bottom: 72px;
+    width: 50px;
+    height: 50px;
   }
 
   .signature-images {
@@ -2136,6 +2134,20 @@ img {
     font-size: 0.74rem;
   }
 
+  .header-main {
+    grid-template-columns: 42px minmax(0, 1fr) 50px;
+    gap: 6px;
+  }
+
+  .header-phone {
+    min-height: 38px;
+    padding: 7px 9px;
+  }
+
+  .header-phone::before {
+    font-size: 0.78rem;
+  }
+
   .hero h1 {
     font-size: 2.45rem;
     width: auto;
@@ -2143,7 +2155,13 @@ img {
   }
 
   .hero__visual {
+    width: calc(100% + 24px);
     min-height: 188px;
+    margin-left: -12px;
+  }
+
+  .hero-image img {
+    object-position: 58% 6%;
   }
 
   .hero {
@@ -2172,7 +2190,14 @@ img {
   }
 
   .cookie-launcher {
-    bottom: 74px;
+    bottom: 72px;
+  }
+
+  .floating-chat {
+    right: 10px;
+    bottom: 72px;
+    width: 48px;
+    height: 48px;
   }
 
 }
